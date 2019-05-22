@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_macros.html" import render_field_with_errors, render_field %}
+{% block title %}Tools{% endblock %}
+{% block content %}
+<div class="container h-100" id="like_button_container">
+
+    this is tool/test
+
+</div>
+{% endblock %}
+
+{% block includejs %}
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+<script src="{{ url_for('static', filename='tools/js/like_button.js') }}"></script>
+{% endblock %}

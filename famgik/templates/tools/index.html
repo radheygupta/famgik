@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "_macros.html" import render_field_with_errors, render_field %}
+{% block title %}Tools{% endblock %}
+{% block content %}
+<div class="container h-100">
+<!--    <div class="row justify-content-center align-items-center">-->
+    <div class="row d-flex flex-column">
+        <div class="col-5 py-4">
+            {% if current_user.has_role('admin') %}
+                <a href="#" class="btn btn-primary btn-lg" role="button" aria-disabled="true">admin</a>
+            {% else %}
+                <a href="#" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">admin</a>
+            {% endif %}
+        </div>
+        <div class="col-5 py-4">
+            {% if current_user.has_role('superuser') %}
+                <a href="#" class="btn btn-primary btn-lg" role="button" aria-disabled="true">superuser</a>
+            {% else %}
+                <a href="#" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">superuser</a>
+            {% endif %}
+        </div>
+        <div class="col-5 py-4">
+            <a href="#" class="btn btn-primary btn-lg {% if not current_user.has_role('staff')%} disabled {% endif%}" role="button" aria-disabled="true">staff</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
